@@ -8,33 +8,9 @@
 
 import SwiftUI
 
-
-struct Items: Identifiable{
-    var id = UUID()
-    var image: String
-    var date: String
-    var emotion: String
-    var caption: String
-}
-
-//enum MoodColor: String {
-//    case sadColor = "sad"
-//    case angryColor = "red"
-//    case tenseColor = "orange"
-//    case calmColor = "pink"
-//    case excitedColor = "yellow"
-//    case happyColor = "green"
-//}
-
-//let itemData = [Items(image: "sad", date: "", emotion: "sad", caption: "I feel blue"),
-//                Items(image: "pink", date: "", emotion: "calm", caption: "so so"),
-//                Items(image: "yellow", date: "", emotion: "excited", caption: "wow!")]
-
 struct ListView: View {
     
     @ObservedObject var moodModelController: MoodModelController
-    
-    //@State var items:[Items] = []
     
     @State var addItemText: String = ""
     @State var open = false
@@ -64,183 +40,162 @@ struct ListView: View {
     @State var selectedDate = Date()
     
     var body: some View {
-        NavigationView {
-            ZStack (alignment: .bottom){
-                VStack {
-                    List {
-                        ForEach(self.moodModelController.moods, id: \.id) { mood in
-                        
-                        MoodRowView(mood: mood)
-//                        NavigationLink(destination: Text("Caption")) {
-//                        HStack {
-//                            Image(item.image).resizable().frame(width: 80, height: 80)
-//                            VStack(alignment: .leading) {
-//                                Text(item.date)
-//                                Text(item.emotion)
-//                                    .font(.title)
-//                                Text(item.caption)
-//                            }
-//                        }
-                    }
-                    }.navigationBarTitle("Mood Tracker")
-                    }
-                Button(action: {
-                    self.show.toggle()
-                }) {
-                    
-                    Image(systemName: "plus").rotationEffect(.degrees(open ? 45 : 0)).foregroundColor(.white).font(.system(size: 38, weight: .bold)).animation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0))
-
-
-
-                }
-
-                .padding(24)
-
-                .background(Color(plusButtonColor))
-
-                .mask(Circle())
-
-                .shadow(color: Color(plusButtonColor), radius: 15)
-
-                .zIndex(10)
-
-            }.sheet(isPresented: self.$show) {
-                VStack {
-                            VStack (spacing: 30){
-                                Text("How are you?").font(.largeTitle)
-                                
-                                DatePicker("Select Date", selection: self.$selectedDate, in: ...Date(),  displayedComponents: .date).labelsHidden()
-                                
-                                HStack {
-                                    
-//                                    if moodColor.MoodColor = self.selectedColor
-                                    
-                                    Button (action: {
-                                        self.emotionState = .sad
-                                        self.moodColor = .sadColor
-                                        self.sadIsSelected = true
-                                        self.angryIsSelected = false
-                                        self.tenseIsSelected = false
-                                        self.calmIsSelected = false
-                                        self.excitedIsSelected = false
-                                        self.happyIsSelected = false
-                                    }) {
-                                        Image("sad")
-                                            .renderingMode(.original)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            
-                                        
-                                    }
-                                    Button (action: {
-                                        self.emotionState = .angry
-                                        self.moodColor = .angryColor
-                                        self.sadIsSelected = false
-                                        self.angryIsSelected = true
-                                        self.tenseIsSelected = false
-                                        self.calmIsSelected = false
-                                        self.excitedIsSelected = false
-                                        self.happyIsSelected = false
-                                    }) {
-                                        Image("red")
-                                            .renderingMode(.original)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                    }
-                                    Button (action: {
-                                        self.emotionState = .tense
-                                        self.moodColor = .tenseColor
-                                        self.sadIsSelected = false
-                                        self.angryIsSelected = false
-                                        self.tenseIsSelected = true
-                                        self.calmIsSelected = false
-                                        self.excitedIsSelected = false
-                                        self.happyIsSelected = false
-                                    }) {
-                                        Image("orange")
-                                            .renderingMode(.original)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundColor(.orange)
-                                    }
-                                    Button (action: {
-                                        self.emotionState = .calm
-                                        self.moodColor = .calmColor
-                                        self.sadIsSelected = false
-                                        self.angryIsSelected = false
-                                        self.tenseIsSelected = false
-                                        self.calmIsSelected = true
-                                        self.excitedIsSelected = false
-                                        self.happyIsSelected = false
-                                    }) {
-                                        Image("pink")
-                                            .renderingMode(.original)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundColor(.pink)
-                                    }
-                                    Button (action: {
-                                        self.emotionState = .excited
-                                        self.moodColor = .excitedColor
-                                        self.sadIsSelected = false
-                                        self.angryIsSelected = false
-                                        self.tenseIsSelected = false
-                                        self.calmIsSelected = false
-                                        self.excitedIsSelected = true
-                                        self.happyIsSelected = false
-                                    }) {
-                                        Image("yellow")
-                                            .renderingMode(.original)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundColor(.yellow)
-                                    }
-                                    Button (action: {
-                                        self.emotionState = .happy
-                                        self.moodColor = .happyColor
-                                        self.sadIsSelected = false
-                                        self.angryIsSelected = false
-                                        self.tenseIsSelected = false
-                                        self.calmIsSelected = false
-                                        self.excitedIsSelected = false
-                                        self.happyIsSelected = true
-                                    }) {
-                                        Image("green")
-                                            .renderingMode(.original)
-                                            .resizable()
-                                            .frame(width: 50, height: 50)
-                                            .foregroundColor(.green)
-                                    }
-                                }
-                                ZStack {
-                                    TextField("What about your feeling?", text: self.$addItemText)
-                                        .padding(.horizontal)
-                                        .frame(width: UIScreen.main.bounds.width - 60, height: 50).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                                        .background(Color(.secondarySystemBackground))
-                                        .cornerRadius(10.0)
-                                }
-                                VStack {
-                                    Button(action: {
-                                        
-                                        self.moodModelController.createMood(emotion: Emotion(
-                                            state: self.emotionState, color: self.moodColor),
-                                            text: self.addItemText,
-                                            date: self.selectedDate)
-//                                        self.items.append(Items(image: "\(self.moodColor)", date: "\(self.selectedDate)", emotion: "Sad", caption: self.addItemText))
-                                        
-//                                            text: self.addItemText = ""
-                                
-                                    }
-                                    ) {
-                                        Text("Add Mood").font(.title).lineLimit(4).frame(width: UIScreen.main.bounds.width - 30, height: 50).background(Color.blue).foregroundColor(.white).cornerRadius(10)
-                                    }
-                                }
-                            }
+        VStack {
+            NavigationView {
+                ZStack (alignment: .bottomTrailing){
+                    VStack {
+                        List {
+                            ForEach(self.moodModelController.moods, id: \.id) { mood in
                             
+                            MoodRowView(mood: mood)
+
+                        }
+                        }.navigationBarTitle("Mood Tracker")
+                        }
+                    Button(action: {
+                        self.show.toggle()
+                    }) {
+                        
+                        Image(systemName: "plus").rotationEffect(.degrees(open ? 45 : 0)).foregroundColor(.white).font(.system(size: 38, weight: .bold)).animation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0))
+
+
+
+                    }
+
+                    .padding(24)
+
+                    .background(Color(plusButtonColor))
+
+                    .mask(Circle())
+
+                    .shadow(color: Color(plusButtonColor), radius: 15)
+
+                    .zIndex(10)
+
+                }.padding([.bottom, .trailing]).sheet(isPresented: self.$show) {
+                    VStack {
+                        VStack (spacing: 30){
+                            Text("How are you?").font(.largeTitle)
+                            DatePicker("Select Date", selection: self.$selectedDate, in: ...Date(),  displayedComponents: .date).labelsHidden()
+                            HStack {
+                                Button (action: {
+                                    self.emotionState = .sad
+                                    self.moodColor = .sadColor
+                                    self.sadIsSelected = true
+                                    self.angryIsSelected = false
+                                    self.tenseIsSelected = false
+                                    self.calmIsSelected = false
+                                    self.excitedIsSelected = false
+                                    self.happyIsSelected = false
+                                }) {
+                                    Image("sad")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                }
+                                Button (action: {
+                                    self.emotionState = .angry
+                                    self.moodColor = .angryColor
+                                    self.sadIsSelected = false
+                                    self.angryIsSelected = true
+                                    self.tenseIsSelected = false
+                                    self.calmIsSelected = false
+                                    self.excitedIsSelected = false
+                                    self.happyIsSelected = false
+                                }) {
+                                    Image("red")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                }
+                                Button (action: {
+                                    self.emotionState = .tense
+                                    self.moodColor = .tenseColor
+                                    self.sadIsSelected = false
+                                    self.angryIsSelected = false
+                                    self.tenseIsSelected = true
+                                    self.calmIsSelected = false
+                                    self.excitedIsSelected = false
+                                    self.happyIsSelected = false
+                                }) {
+                                    Image("orange")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(.orange)
+                                }
+                                Button (action: {
+                                    self.emotionState = .calm
+                                    self.moodColor = .calmColor
+                                    self.sadIsSelected = false
+                                    self.angryIsSelected = false
+                                    self.tenseIsSelected = false
+                                    self.calmIsSelected = true
+                                    self.excitedIsSelected = false
+                                    self.happyIsSelected = false
+                                }) {
+                                    Image("pink")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(.pink)
+                                }
+                                Button (action: {
+                                    self.emotionState = .excited
+                                    self.moodColor = .excitedColor
+                                    self.sadIsSelected = false
+                                    self.angryIsSelected = false
+                                    self.tenseIsSelected = false
+                                    self.calmIsSelected = false
+                                    self.excitedIsSelected = true
+                                    self.happyIsSelected = false
+                                }) {
+                                    Image("yellow")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(.yellow)
+                                }
+                                Button (action: {
+                                    self.emotionState = .happy
+                                    self.moodColor = .happyColor
+                                    self.sadIsSelected = false
+                                    self.angryIsSelected = false
+                                    self.tenseIsSelected = false
+                                    self.calmIsSelected = false
+                                    self.excitedIsSelected = false
+                                    self.happyIsSelected = true
+                                }) {
+                                    Image("green")
+                                        .renderingMode(.original)
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(.green)
+                                }
+                                
+                            }
+                            ZStack {
+                                TextField("What about your feeling?", text: self.$addItemText)
+                                    .padding(.horizontal)
+                                    .frame(width: UIScreen.main.bounds.width - 60, height: 50).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                                    .background(Color(.secondarySystemBackground))
+                                    .cornerRadius(10.0)
+                            }
+                            VStack {
+                                Button(action: {
+                                    self.moodModelController.createMood(emotion: Emotion(state: self.emotionState, color: self.moodColor), text: self.addItemText, date: self.selectedDate)
+                                    self.show = false
+                                }
+                                ) {
+                                    Text("Add Mood").font(.title).lineLimit(4).frame(width: UIScreen.main.bounds.width - 30, height: 50).background(Color.blue).foregroundColor(.white).cornerRadius(10)
+                                }
+                            } //End VStack
                         }
                     }
+                }
             }
         }
+    }
 }
 
 struct ListView_Previews: PreviewProvider {
