@@ -2,8 +2,8 @@
 //  SceneDelegate.swift
 //  MoodTracker_v2
 //
-//  Created by Nattarika on 29/4/2563 BE.
-//  Copyright © 2563 Nattarika. All rights reserved.
+//  Created by Dhittaya and Nattarika on 29/4/2563 BE.
+//  Copyright © 2563 Dhittaya and Nattarika. All rights reserved.
 //
 
 import UIKit

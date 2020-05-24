@@ -2,13 +2,16 @@
 //  ChartView.swift
 //  MoodTracker_v2
 //
-//  Created by Dhittaya Nuangchamnong on 19/5/2563 BE.
-//  Copyright © 2563 Nattarika. All rights reserved.
+//  Created by Dhittaya and Dhittaya Nuangchamnong on 19/5/2563 BE.
+//  Copyright © 2563 Dhittaya and Nattarika. All rights reserved.
 //
 
 import SwiftUI
+import SwiftUICharts
 
-struct ChartView: View {
+public struct ChartView: View {
+    
+    @ObservedObject var moodModelController: MoodModelController
     
     @State var bar1 : CGFloat = 0
     @State var bar2 : CGFloat = 0
@@ -17,202 +20,111 @@ struct ChartView: View {
     @State var bar5 : CGFloat = 0
     @State var bar6 : CGFloat = 0
     
-    var body: some View {
-        GeometryReader{ geo in
-            VStack{
-                Text("Mood Chart").font(.largeTitle).padding(.bottom, 30)
-                HStack{
-                    Button(action: {
-                        self.bar1 = geo.size.width / 2 - 20
-                        self.bar2 = geo.size.width * 0.25 - 20
-                        self.bar3 = geo.size.width / 2 - 80
-                        self.bar4 = geo.size.width * 0.25 - 60
-                        self.bar5 = geo.size.width - 40
-                        self.bar6 = geo.size.width * 0.25 - 40
-                        
-                    }) {
-                        Text("Jan").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 20
-                        self.bar2 = geo.size.width / 2 - 20
-                        self.bar3 = geo.size.width * 0.25 - 60
-                        self.bar4 = geo.size.width / 2 - 80
-                        self.bar5 = geo.size.width * 0.25 - 40
-                        self.bar6 = geo.size.width - 60
-                        
-                    }) {
-                        Text("Feb").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Mar").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width / 2 - 20
-                        self.bar2 = geo.size.width * 0.25 - 20
-                        self.bar3 = geo.size.width / 2 - 80
-                        self.bar4 = geo.size.width * 0.25 - 60
-                        self.bar5 = geo.size.width - 40
-                        self.bar6 = geo.size.width * 0.25 - 40
-                        
-                    }) {
-                        Text("Apr").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 20
-                        self.bar2 = geo.size.width / 2 - 20
-                        self.bar3 = geo.size.width * 0.25 - 60
-                        self.bar4 = geo.size.width / 2 - 80
-                        self.bar5 = geo.size.width * 0.25 - 40
-                        self.bar6 = geo.size.width - 60
-                        
-                    }) {
-                        Text("May").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Jun").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                }.padding(5)
-                HStack{
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Jul").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Aug").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Sep").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Oct").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Nov").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                    
-                    Button(action: {
-                        
-                        self.bar1 = geo.size.width * 0.25 - 40
-                        self.bar2 = geo.size.width / 2 - 100
-                        self.bar3 = geo.size.width * 0.25 - 20
-                        self.bar4 = geo.size.width / 2 - 50
-                        self.bar5 = geo.size.width - 100
-                        self.bar6 = geo.size.width * 0.25 - 30
-                        
-                    }) {
-                        Text("Dec").padding(15)
-                        }.background(Color.init("SalmonPink")).foregroundColor(Color.white).cornerRadius(8)
-                }.padding(.bottom, 20)
-                
-                
-                BarChart(percent: self.bar1, color: Color.init("pink"))
-                BarChart(percent: self.bar2, color: Color.init("blue"))
-                BarChart(percent: self.bar3, color: Color.init("green"))
-                BarChart(percent: self.bar4, color: Color.init("orange"))
-                BarChart(percent: self.bar5, color: Color.init("yellow"))
-                BarChart(percent: self.bar6, color: Color.init("red"))
-
-            }
-            .onAppear{
-                self.bar1 = geo.size.width - 500
-                self.bar2 = geo.size.width - 500
-                self.bar3 = geo.size.width - 500
-                self.bar4 = geo.size.width - 500
-                self.bar5 = geo.size.width - 500
-                self.bar6 = geo.size.width - 500
-            }
-        }.animation(.spring())
+    var sad = 24
+    var angry = 16
+    var tense = 25
+    var calm = 40
+    var excited = 25
+    var happy = 100
+    
+    var allMood: Int {
+        sad + angry + tense + calm + excited + happy
+    }
+    
+    var sadResult: Int {
+        self.moodModelController.actualValue(mood: self.sad, allMood: self.allMood)
+    }
+    var angryResult: Int {
+        self.moodModelController.actualValue(mood: self.angry, allMood: self.allMood)
+    }
+    var tenseResult: Int {
+        self.moodModelController.actualValue(mood: self.tense, allMood: self.allMood)
+    }
+    var calmResult: Int {
+        self.moodModelController.actualValue(mood: self.calm, allMood: self.allMood)
+    }
+    var excitedResult: Int {
+        self.moodModelController.actualValue(mood: self.excited, allMood: self.allMood)
+    }
+    var happyResult: Int {
+        self.moodModelController.actualValue(mood: self.happy, allMood: self.allMood)
+    }
+    
+    public var body: some View {
+        ZStack {
+            
+            GeometryReader{ geo in
+                Rectangle().fill(Color(UIColor.systemBackground)).cornerRadius(15).shadow(color: .gray, radius: 5, x: 1, y: 1)
+                VStack(alignment: .leading){
+                    Text("Mood Chart").font(.largeTitle).fontWeight(.heavy).multilineTextAlignment(.leading).padding([.top, .leading, .bottom], 30)
+                            
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Image("green").resizable().frame(width: 30, height: 30)
+                                    BarChart(percent: self.bar1, color: Color.green)
+                                }
+                                
+                                HStack {
+                                    Image("yellow").resizable().frame(width: 30, height: 30)
+                                    BarChart(percent: self.bar2, color: Color.yellow)
+                                }
+                                
+                                HStack {
+                                    Image("pink").resizable().frame(width: 30, height: 30)
+                                    BarChart(percent: self.bar3, color: Color.pink)
+                                }
+                                
+                                HStack {
+                                    Image("orange").resizable().frame(width: 30, height: 30)
+                                    BarChart(percent: self.bar4, color: Color.orange)
+                                }
+                                
+                                HStack {
+                                    Image("red").resizable().frame(width: 30, height: 30)
+                                    BarChart(percent: self.bar5, color: Color.red)
+                                }
+                                
+                                HStack {
+                                    Image("sad").resizable().frame(width: 30, height: 30)
+                                    BarChart(percent: self.bar6, color: Color.blue)
+                                }
+                            }.padding(.horizontal)
+                            
+                        }
+                        .onAppear{
+                            
+                            self.bar1 = geo.size.width / 2 + 100 - CGFloat(self.happyResult)
+                            self.bar2 = geo.size.width / 2 + 100 - CGFloat(self.excitedResult)
+                            self.bar3 = geo.size.width / 2 + 100 - CGFloat(self.calmResult)
+                            self.bar4 = geo.size.width / 2 + 100 - CGFloat(self.tenseResult)
+                            self.bar5 = geo.size.width / 2 + 100 - CGFloat(self.angryResult)
+                            self.bar6 = geo.size.width / 2 + 100 - CGFloat(self.sadResult)
+                }
+            }.animation(.spring())
+        }
+        .padding(.horizontal)
+        .frame(height: 450)
+        
     }
 }
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView()
+        ChartView(moodModelController: MoodModelController())
     }
 }
 
 struct BarChart : View {
-    
     var percent : CGFloat = 0
     var color : Color = .white
+    var maxwidth : CGFloat = 270
     var body: some View {
-        HStack{
-                Capsule().fill(self.color).frame(width: self.percent, height: 30)
-            Spacer()
-        }.padding(5)
+        VStack(alignment: .leading) {
+            HStack{
+                Capsule().fill(self.color).frame(width: self.percent, height: 30).shadow(color: .gray, radius: 3, x: 1, y: 1)
+                Spacer()
+            }.padding(.all, 5)
+        }
     }
 }
 
@@ -229,4 +141,5 @@ var details = [
     num(id:4, detail: 7),
     num(id:5, detail: 3)
 ]
+
 

@@ -2,8 +2,8 @@
 //  ListView.swift
 //  MoodTracker_v2
 //
-//  Created by Nattarika on 29/4/2563 BE.
-//  Copyright © 2563 Nattarika. All rights reserved.
+//  Created by Dhittaya and Nattarika on 29/4/2563 BE.
+//  Copyright © 2563 Dhittaya and Nattarika. All rights reserved.
 //
 
 import SwiftUI
@@ -11,6 +11,7 @@ import SwiftUI
 struct ListView: View {
     
     @ObservedObject var moodModelController: MoodModelController
+    @ObservedObject var keyboardResponder = KeyboardResponder()
     
     @State var addItemText: String = ""
     @State var open = false
@@ -25,6 +26,8 @@ struct ListView: View {
     @State private var excitedIsSelected = false
     @State private var happyIsSelected = false
     
+    //move view when keyboard appear
+    @State private var keyboardHeight: CGFloat = 0
 
     var plusButtonColor = "SalmonPink"
     
@@ -35,8 +38,6 @@ struct ListView: View {
         return formatter
     }
     
-    
-    
     @State var selectedDate = Date()
     
     var body: some View {
@@ -46,12 +47,23 @@ struct ListView: View {
                     VStack {
                         List {
                             ForEach(self.moodModelController.moods, id: \.id) { mood in
-                            
-                            MoodRowView(mood: mood)
-
+                                NavigationLink (destination: DetailView(mood: mood)) {
+    
+                                    MoodRowView(mood: mood)
+                                    
+                                    }.buttonStyle(PlainButtonStyle())
+                            }
+                            .onDelete { (index) in
+                                
+                                self.moodModelController.deleteMood(at: index)
+                            }
                         }
-                        }.navigationBarTitle("Mood Tracker")
+                        .navigationBarTitle("Mood Tracker")
+                        .onAppear {
+                                UITableView.appearance().separatorStyle = .none
                         }
+                        
+                    }
                     Button(action: {
                         self.show.toggle()
                     }) {
@@ -180,23 +192,54 @@ struct ListView: View {
                                     .frame(width: UIScreen.main.bounds.width - 60, height: 50).padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                                     .background(Color(.secondarySystemBackground))
                                     .cornerRadius(10.0)
-                            }
+                                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                            }.padding(.bottom, self.keyboardHeight)
+                            
                             VStack {
                                 Button(action: {
                                     self.moodModelController.createMood(emotion: Emotion(state: self.emotionState, color: self.moodColor), text: self.addItemText, date: self.selectedDate)
                                     self.show = false
+                                    self.addItemText = ""
                                 }
                                 ) {
                                     Text("Add Mood").font(.title).lineLimit(4).frame(width: UIScreen.main.bounds.width - 30, height: 50).background(Color.blue).foregroundColor(.white).cornerRadius(10)
                                 }
                             } //End VStack
                         }
-                    }
+                    }.offset(y: -self.keyboardResponder.currentHeight*0.9)
                 }
             }
         }
     }
 }
+
+class KeyboardResponder: ObservableObject {
+    @Published var currentHeight: CGFloat = 0
+    
+    var _center: NotificationCenter
+
+    init(center: NotificationCenter = .default) {
+        _center = center
+        _center.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        _center.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyBoardWillShow(notification: Notification) {
+    if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                withAnimation {
+                    currentHeight = keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyBoardWillHide(notification: Notification) {
+            withAnimation {
+               currentHeight = 0
+        }
+    }
+}
+
+
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
@@ -217,9 +260,6 @@ struct AddView: View {
             Button(action: {self.open.toggle()}) {
 
                 Image(systemName: "plus").rotationEffect(.degrees(open ? 45 : 0)).foregroundColor(.white).font(.system(size: 38, weight: .bold)).animation(.spring(response: 0.2, dampingFraction: 0.4, blendDuration: 0))
-
-                
-
             }
 
             .padding(24)
@@ -232,21 +272,17 @@ struct AddView: View {
 
             .zIndex(10)
 
-            
-
-            
-
-//            SecondaryButton(open: $open, color: "blue", offsetX: -90, delay: 0.1)
+//            SecondaryButton(open: $open, color: "SalmonPink", offsetX: -90, delay: 0.1)
 //
-//            SecondaryButton(open: $open, color: "red", offsetX: -70, offsetV: -50, delay: 0.2)
+//            SecondaryButton(open: $open, color: "SalmonPink", offsetX: -70, offsetV: -50, delay: 0.2)
 //
-//            SecondaryButton(open: $open, color: "yellow", offsetX: -25, offsetV: -80, delay: 0.3)
+//            SecondaryButton(open: $open, color: "SalmonPink", offsetX: -25, offsetV: -80, delay: 0.3)
 //
-//            SecondaryButton(open: $open, color: "pink", offsetX: 25, offsetV: -80, delay: 0.4)
+//            SecondaryButton(open: $open, color: "piSalmonPinknk", offsetX: 25, offsetV: -80, delay: 0.4)
 //
-//            SecondaryButton(open: $open, color: "orange", offsetX: 70, offsetV: -50, delay: 0.5)
+//            SecondaryButton(open: $open, color: "SalmonPink", offsetX: 70, offsetV: -50, delay: 0.5)
 //
-//            SecondaryButton(open: $open, color: "green", offsetX: 90, delay: 0.6)
+//            SecondaryButton(open: $open, color: "SalmonPink", offsetX: 90, delay: 0.6)
 
         }
 
@@ -254,55 +290,51 @@ struct AddView: View {
 
 }
 
+struct AddView_Previews: PreviewProvider {
 
- 
+    static var previews: some View {
 
-//struct AddView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//
-//        AddView()
-//
-//    }
-//
-//}
-//
-//
-//struct SecondaryButton : View{
-//
-//    @Binding var open: Bool
-//
-//    var icon = ""
-//
-//    var color = "blue"
-//
-//    var offsetX = 0
-//
-//    var offsetV = 0
-//
-//    var delay = 0.0
-//
-//    var body: some View{
-//
-//        Button(action: {}) {
-//
-//            Image(systemName: icon).frame(width: 15, height: 15).foregroundColor(.white).font(.system(size: 20, weight: .bold))
-//
-//        }
-//
-//    .padding()
-//
-//        .background(Color(color))
-//
-//        .mask(Circle())
-//
-//        .offset(x: open ? CGFloat(offsetX) : 0 , y: open ? CGFloat(offsetV) : 0)
-//
-//        .scaleEffect(open ? 1:0)
-//
-//        .animation(Animation.spring(response: 0.2, dampingFraction: 0.5, blendDuration: 0).delay(Double(delay)))
-//
-//    }
-//
-//}
+        AddView()
+
+    }
+
+}
+
+struct SecondaryButton : View{
+
+    @Binding var open: Bool
+
+    var icon = ""
+
+    var color = "blue"
+
+    var offsetX = 0
+
+    var offsetV = 0
+
+    var delay = 0.0
+
+    var body: some View{
+
+        Button(action: {}) {
+
+            Image(systemName: icon).frame(width: 15, height: 15).foregroundColor(.white).font(.system(size: 20, weight: .bold))
+
+        }
+
+    .padding()
+
+        .background(Color(color))
+
+        .mask(Circle())
+
+        .offset(x: open ? CGFloat(offsetX) : 0 , y: open ? CGFloat(offsetV) : 0)
+
+        .scaleEffect(open ? 1:0)
+
+        .animation(Animation.spring(response: 0.2, dampingFraction: 0.5, blendDuration: 0).delay(Double(delay)))
+
+    }
+
+}
 

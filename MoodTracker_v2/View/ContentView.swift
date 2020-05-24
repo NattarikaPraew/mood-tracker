@@ -2,19 +2,33 @@
 //  ContentView.swift
 //  MoodTracker_v2
 //
-//  Created by Nattarika on 20/5/2563 BE.
-//  Copyright © 2563 Nattarika. All rights reserved.
+//  Created by Dhittaya and Nattarika on 20/5/2563 BE.
+//  Copyright © 2563 Dhittaya and Nattarika. All rights reserved.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView(selection: /*@START_MENU_TOKEN@*/ /*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
-            ListView(moodModelController: MoodModelController())
-                .tabItem { Text("Home") }.tag(1)
-            ChartView()
-                .tabItem { Text("Insight") }.tag(2)
+        HStack {
+            TabView() {
+                ListView(moodModelController: MoodModelController())
+                    .tabItem {
+                        Image("notepad30")
+                        Text("Home") }.tag(1)
+                ChartView(moodModelController: MoodModelController())
+                    .tabItem {
+                        Image("comboChart30")
+                        Text("Insight") }.tag(2)
+                CalendarView(start: Date(), monthsToShow: 2, moodController: MoodModelController())
+                    .tabItem {
+                        Image("calendar30")
+                        Text("Calendar") }.tag(3)
+                NotifyView()
+                    .tabItem{
+                        Image("more30")
+                    (Text("more")) }.tag(4)
+            }
         }
     }
 }

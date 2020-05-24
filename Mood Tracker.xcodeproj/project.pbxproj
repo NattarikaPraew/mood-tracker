@@ -1,0 +1,454 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B801F1912478F80D0090CA6B /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = B801F1902478F80D0090CA6B /* SwiftUICharts */; };
+		B801F19324793CD90090CA6B /* NotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B801F19224793CD80090CA6B /* NotifyView.swift */; };
+		B805E3072473CB3900238C26 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805E3062473CB3900238C26 /* ListView.swift */; };
+		B805E309247423ED00238C26 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805E308247423ED00238C26 /* Mood.swift */; };
+		B805E30B24742E3900238C26 /* MoodModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805E30A24742E3900238C26 /* MoodModelController.swift */; };
+		B805E30D247433F800238C26 /* MoodRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805E30C247433F800238C26 /* MoodRowView.swift */; };
+		B805E31124745A8E00238C26 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B805E31024745A8E00238C26 /* ChartView.swift */; };
+		B84068032459BDC400C92449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84068022459BDC400C92449 /* AppDelegate.swift */; };
+		B84068052459BDC400C92449 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84068042459BDC400C92449 /* SceneDelegate.swift */; };
+		B840680C2459BDC800C92449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B840680B2459BDC800C92449 /* Assets.xcassets */; };
+		B840680F2459BDC800C92449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B840680D2459BDC800C92449 /* LaunchScreen.storyboard */; };
+		B84068192459BE7D00C92449 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84068182459BE7D00C92449 /* CalendarView.swift */; };
+		B840682E2459E34A00C92449 /* color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B840682D2459E34A00C92449 /* color.xcassets */; };
+		B87FE0B12475336E00982BD4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0B02475336E00982BD4 /* ContentView.swift */; };
+		B87FE0B32475A20700982BD4 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0B22475A20700982BD4 /* WeekDaysView.swift */; };
+		B87FE0B52475A2E800982BD4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0B42475A2E800982BD4 /* Colors.swift */; };
+		B87FE0B72475A44300982BD4 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0B62475A44300982BD4 /* Grid.swift */; };
+		B87FE0B92475A56400982BD4 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0B82475A56400982BD4 /* MonthView.swift */; };
+		B87FE0BB2475A61A00982BD4 /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0BA2475A61A00982BD4 /* Month.swift */; };
+		B87FE0BD2475A9C100982BD4 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0BC2475A9C100982BD4 /* Day.swift */; };
+		B87FE0BF2475AB3600982BD4 /* DayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0BE2475AB3600982BD4 /* DayCellView.swift */; };
+		B87FE0C124767B3200982BD4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87FE0C024767B3200982BD4 /* DetailView.swift */; };
+		B88C383B24704449000E4014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B88C383A24704449000E4014 /* Main.storyboard */; };
+		B8C2144824770E9300D0E2EF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2144724770E9300D0E2EF /* Helper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B801F19224793CD80090CA6B /* NotifyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyView.swift; sourceTree = "<group>"; };
+		B805E3062473CB3900238C26 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		B805E308247423ED00238C26 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		B805E30A24742E3900238C26 /* MoodModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodModelController.swift; sourceTree = "<group>"; };
+		B805E30C247433F800238C26 /* MoodRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodRowView.swift; sourceTree = "<group>"; };
+		B805E31024745A8E00238C26 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		B84067FF2459BDC400C92449 /* Mood Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mood Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B84068022459BDC400C92449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B84068042459BDC400C92449 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B840680B2459BDC800C92449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B840680E2459BDC800C92449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B84068102459BDC800C92449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B84068182459BE7D00C92449 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		B840682D2459E34A00C92449 /* color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = color.xcassets; sourceTree = "<group>"; };
+		B87FE0B02475336E00982BD4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B87FE0B22475A20700982BD4 /* WeekDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
+		B87FE0B42475A2E800982BD4 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B87FE0B62475A44300982BD4 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		B87FE0B82475A56400982BD4 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		B87FE0BA2475A61A00982BD4 /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
+		B87FE0BC2475A9C100982BD4 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		B87FE0BE2475AB3600982BD4 /* DayCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCellView.swift; sourceTree = "<group>"; };
+		B87FE0C024767B3200982BD4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B88C383A24704449000E4014 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B8C2144724770E9300D0E2EF /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B84067FC2459BDC400C92449 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B801F1912478F80D0090CA6B /* SwiftUICharts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B84067F62459BDC400C92449 = {
+			isa = PBXGroup;
+			children = (
+				B84068012459BDC400C92449 /* MoodTracker_v2 */,
+				B84068002459BDC400C92449 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B84068002459BDC400C92449 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B84067FF2459BDC400C92449 /* Mood Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B84068012459BDC400C92449 /* MoodTracker_v2 */ = {
+			isa = PBXGroup;
+			children = (
+				B88C383A24704449000E4014 /* Main.storyboard */,
+				B84068022459BDC400C92449 /* AppDelegate.swift */,
+				B84068042459BDC400C92449 /* SceneDelegate.swift */,
+				B8C2144724770E9300D0E2EF /* Helper.swift */,
+				B88C383724700EBC000E4014 /* Model */,
+				B88C383624700E59000E4014 /* Model Controller */,
+				B88C383524700E31000E4014 /* View */,
+				B840680B2459BDC800C92449 /* Assets.xcassets */,
+				B840682D2459E34A00C92449 /* color.xcassets */,
+				B840680D2459BDC800C92449 /* LaunchScreen.storyboard */,
+				B84068102459BDC800C92449 /* Info.plist */,
+			);
+			path = MoodTracker_v2;
+			sourceTree = "<group>";
+		};
+		B88C383524700E31000E4014 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B87FE0B02475336E00982BD4 /* ContentView.swift */,
+				B805E3062473CB3900238C26 /* ListView.swift */,
+				B87FE0C024767B3200982BD4 /* DetailView.swift */,
+				B805E30C247433F800238C26 /* MoodRowView.swift */,
+				B805E31024745A8E00238C26 /* ChartView.swift */,
+				B84068182459BE7D00C92449 /* CalendarView.swift */,
+				B87FE0B22475A20700982BD4 /* WeekDaysView.swift */,
+				B87FE0B62475A44300982BD4 /* Grid.swift */,
+				B87FE0B82475A56400982BD4 /* MonthView.swift */,
+				B87FE0BE2475AB3600982BD4 /* DayCellView.swift */,
+				B801F19224793CD80090CA6B /* NotifyView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B88C383624700E59000E4014 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B805E30A24742E3900238C26 /* MoodModelController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		B88C383724700EBC000E4014 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B805E308247423ED00238C26 /* Mood.swift */,
+				B87FE0B42475A2E800982BD4 /* Colors.swift */,
+				B87FE0BA2475A61A00982BD4 /* Month.swift */,
+				B87FE0BC2475A9C100982BD4 /* Day.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B84067FE2459BDC400C92449 /* Mood Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B84068132459BDC800C92449 /* Build configuration list for PBXNativeTarget "Mood Tracker" */;
+			buildPhases = (
+				B84067FB2459BDC400C92449 /* Sources */,
+				B84067FC2459BDC400C92449 /* Frameworks */,
+				B84067FD2459BDC400C92449 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mood Tracker";
+			packageProductDependencies = (
+				B801F1902478F80D0090CA6B /* SwiftUICharts */,
+			);
+			productName = MoodTracker_v2;
+			productReference = B84067FF2459BDC400C92449 /* Mood Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B84067F72459BDC400C92449 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = Nattarika;
+				TargetAttributes = {
+					B84067FE2459BDC400C92449 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+				};
+			};
+			buildConfigurationList = B84067FA2459BDC400C92449 /* Build configuration list for PBXProject "Mood Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B84067F62459BDC400C92449;
+			packageReferences = (
+				B801F18F2478F80D0090CA6B /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
+			productRefGroup = B84068002459BDC400C92449 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B84067FE2459BDC400C92449 /* Mood Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B84067FD2459BDC400C92449 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B840680F2459BDC800C92449 /* LaunchScreen.storyboard in Resources */,
+				B840682E2459E34A00C92449 /* color.xcassets in Resources */,
+				B840680C2459BDC800C92449 /* Assets.xcassets in Resources */,
+				B88C383B24704449000E4014 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B84067FB2459BDC400C92449 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B87FE0BF2475AB3600982BD4 /* DayCellView.swift in Sources */,
+				B87FE0B52475A2E800982BD4 /* Colors.swift in Sources */,
+				B87FE0BD2475A9C100982BD4 /* Day.swift in Sources */,
+				B805E3072473CB3900238C26 /* ListView.swift in Sources */,
+				B8C2144824770E9300D0E2EF /* Helper.swift in Sources */,
+				B87FE0C124767B3200982BD4 /* DetailView.swift in Sources */,
+				B87FE0B72475A44300982BD4 /* Grid.swift in Sources */,
+				B87FE0B92475A56400982BD4 /* MonthView.swift in Sources */,
+				B84068032459BDC400C92449 /* AppDelegate.swift in Sources */,
+				B87FE0BB2475A61A00982BD4 /* Month.swift in Sources */,
+				B87FE0B32475A20700982BD4 /* WeekDaysView.swift in Sources */,
+				B805E31124745A8E00238C26 /* ChartView.swift in Sources */,
+				B801F19324793CD90090CA6B /* NotifyView.swift in Sources */,
+				B805E309247423ED00238C26 /* Mood.swift in Sources */,
+				B84068192459BE7D00C92449 /* CalendarView.swift in Sources */,
+				B87FE0B12475336E00982BD4 /* ContentView.swift in Sources */,
+				B84068052459BDC400C92449 /* SceneDelegate.swift in Sources */,
+				B805E30D247433F800238C26 /* MoodRowView.swift in Sources */,
+				B805E30B24742E3900238C26 /* MoodModelController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B840680D2459BDC800C92449 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B840680E2459BDC800C92449 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B84068112459BDC800C92449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B84068122459BDC800C92449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B84068142459BDC800C92449 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9D6HJU7N5;
+				INFOPLIST_FILE = MoodTracker_v2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Praew.MoodTracker-v2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B84068152459BDC800C92449 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D9D6HJU7N5;
+				INFOPLIST_FILE = MoodTracker_v2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Praew.MoodTracker-v2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B84067FA2459BDC400C92449 /* Build configuration list for PBXProject "Mood Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B84068112459BDC800C92449 /* Debug */,
+				B84068122459BDC800C92449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B84068132459BDC800C92449 /* Build configuration list for PBXNativeTarget "Mood Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B84068142459BDC800C92449 /* Debug */,
+				B84068152459BDC800C92449 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B801F18F2478F80D0090CA6B /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B801F1902478F80D0090CA6B /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B801F18F2478F80D0090CA6B /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B84067F72459BDC400C92449 /* Project object */;
+}

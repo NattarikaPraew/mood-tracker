@@ -2,17 +2,14 @@
 //  MoodRowView.swift
 //  MoodTracker_v2
 //
-//  Created by Nattarika on 19/5/2563 BE.
-//  Copyright © 2563 Nattarika. All rights reserved.
+//  Created by Dhittaya and Nattarika on 19/5/2563 BE.
+//  Copyright © 2563 Dhittaya and Nattarika. All rights reserved.
 //
 
 import SwiftUI
 
 struct MoodRowView: View {
-    var mood: Mood
-    
-    
-    
+    var mood: Mood  
     
     var body: some View {
         ZStack {
@@ -28,25 +25,13 @@ struct MoodRowView: View {
                         Text(mood.day)
                     }
                     moodName()
-                    Text(mood.text)
+                    //Text(mood.text)
                     
                 }.padding()
                 Spacer()
 
                 
             }
-//            HStack {
-//                VStack {
-//                    Text(mood.date)
-//                    Text("\(mood.dayAsInt)")
-//
-//                }
-//                Text(mood.text ?? "No caption made.").font(.title).bold()
-//                Spacer()
-//
-//                moodImage()
-//
-//            }
             .foregroundColor(mood.emotion.moodColor)
             .padding()
             
@@ -92,6 +77,7 @@ struct MoodRowView: View {
         }
         return Text("\(name)")
     }
+    
     
 }
 

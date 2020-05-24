@@ -1,56 +1,60 @@
-//
+
 //  CalendarView.swift
 //  MoodTracker_v2
 //
-//  Created by Nattarika on 29/4/2563 BE.
-//  Copyright © 2563 Nattarika. All rights reserved.
-//
+//  Created by Dhittaya and Nattarika on 29/4/2563 BE.
+//  Copyright © 2563 Dhittaya and Nattarika. All rights reserved.
 
 import SwiftUI
 
-struct calendarView: View {
-    @State var singleIsPresented = false
-    @State var isChartTapped: Bool = false
-    
-    
-    var rkManager = RKManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*365), mode: 0)
-    
-    var body: some View {
-        NavigationView {
-            NavigationLink(destination: EditView()) {
-                VStack {
-                       RKViewController(isPresented: self.$singleIsPresented, rkManager: self.rkManager)
+@available(OSX 10.15, *)
+@available(iOS 13.0, *)
+public struct CalendarView: View {
+    @ObservedObject var moodModelController: MoodModelController
+    let startDate: Date
+    let monthsToDisplay: Int
+    var selectableDays = true
 
+
+    init(start: Date, monthsToShow: Int, daysSelectable: Bool = true, moodController: MoodModelController) {
+    self.startDate = start
+    self.monthsToDisplay = monthsToShow
+    self.selectableDays = daysSelectable
+    self.moodModelController = moodController
+    }
+
+    public var body: some View {
+
+        VStack {
+            Text("Mood Calendar")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.bottom)
+            WeekDaysView()
+            ScrollView {
+                MonthView(moodModelController: moodModelController, month: Month(startDate: startDate, selectableDays: selectableDays))
+                if monthsToDisplay > 1 {
+                    ForEach(1..<self.monthsToDisplay) {
+                        MonthView(moodModelController: self.moodModelController, month: Month(startDate: self.nextMonth(currentMonth: self.startDate, add: $0), selectableDays: self.selectableDays))
+                    }
                 }
             }
-            .navigationBarTitle("Calendar")
-            .navigationBarItems(trailing:
-            HStack {
-                Button(action: {}) {
-                    Image("comboChart30").font(.largeTitle)
-                    
-                }
-            }
-            )
-        }
+            Spacer()
+        }.padding()
     }
-    
-    
-    
-    func getTextFromDate(date: Date!) -> String {
-        var txt: String
-        let formatter = DateFormatter()
-        formatter.locale = .current
-        formatter.dateFormat = "EEEE, MMMM d, yyyy"
-        txt = date == nil ? "" : formatter.string(from: date)
-        print(txt)
-        return date == nil ? "" : formatter.string(from: date)
+
+    func nextMonth(currentMonth: Date, add: Int) -> Date {
+        var components = DateComponents()
+        components.month = add
+        let next = Calendar.current.date(byAdding: components, to: currentMonth)!
+        return next
     }
-    
 }
 
-struct calendarView_Previews: PreviewProvider {
+@available(OSX 10.15, *)
+@available(iOS 13.0, *)
+struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        calendarView()
+        CalendarView(start: Date(), monthsToShow: 2, moodController: MoodModelController())
     }
 }
