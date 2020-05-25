@@ -9,7 +9,7 @@ Features
 - Display first mood added of the day
 - Send Notify
 
-uncompletely 
+It still have some bug and uncomplete feature 
 - on saving image from UIInage
 - refresh view when data is added in DetailView.swift
 - ChartView cannot get mood data from data added
