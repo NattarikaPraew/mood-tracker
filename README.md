@@ -1,6 +1,8 @@
 ### Mood Tracker By Swiftui
 ![](https://github.com/NattarikaPraew/mood-tracker/blob/master/MoodTracker_v2/Assets.xcassets/AppIcon.appiconset/120.png)
 
+Mood Tracker is an iOS application to keep track the mental health. In one day, user can add more than one mood, write the highlight caption, and add a picture. User can see the overview the added mood in monthly view in Calendar tab.
+
 Features
 - Can add more than 1 mood in a day
 - Can edit caption
